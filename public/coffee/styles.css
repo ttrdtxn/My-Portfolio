@@ -1,0 +1,127 @@
+/* Core Layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdfae6; /* Light cream background */
+    margin: 0;
+    padding: 40px 20px;
+    color: #2c1b0e; /* Dark coffee color for text */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    border: 2px solid #2c1b0e;
+    background-color: #f1e8b0;
+    box-shadow: 15px 15px 0px #ccaa66; /* Aesthetic shadow */
+}
+
+/* Header */
+.header {
+    background-color: #ccaa66;
+    padding: 25px;
+    text-align: center;
+    border-bottom: 2px solid #2c1b0e;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Sidebar & Navigation */
+.content-wrapper {
+    display: flex;
+}
+
+.sidebar {
+    width: 150px;
+    background-color: #E8D882;
+    border-right: 2px solid #2c1b0e;
+    padding: 20px 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li a {
+    display: block;
+    padding: 12px 20px;
+    color: black; /* Your requirement */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.sidebar li a:hover {
+    background-color: #ccaa66;
+    padding-left: 25px;
+}
+
+/* Main Content Area - THE FIXED CONTAINER */
+.main {
+    flex: 1;
+    padding: 30px;
+    height: 400px; /* Forces all pages to be the same height */
+    overflow-y: auto; /* Adds a scroll if content is too big */
+    position: relative;
+    background-color: #f9f3cf;
+}
+
+/* Section Switching Logic */
+.content-section {
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.4s ease;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.content-section.active {
+    display: flex; /* Shown only when active */
+}
+
+/* Content Details */
+.text-content {
+    flex: 1;
+}
+
+.main-img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border: 2px solid #2c1b0e;
+    border-radius: 8px;
+    margin-left: 20px;
+}
+
+.audio-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e8d882;
+    border-radius: 5px;
+}
+
+/* Footer */
+.footer {
+    background-color: #ccaa66;
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid #2c1b0e;
+    font-size: 12px;
+}
+
+.footer a {
+    color: black;
+    font-weight: bold;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,11 +1,11 @@
 <template>
   <div class="page-container">
-    <!-- HERO SECTION (Kept from before) -->
+    <!-- HERO SECTION -->
     <main class="hero">
       <div class="hero-content">
         <h1 class="main-title">Hello, I'm <br /><span class="highlight">Trisha.</span></h1>
         <p class="subtitle">
-          Computer Engineering Technology student at <strong>PUP</strong>. <br />
+          Computer Engineering Technology graduate at <strong>PUP</strong>. <br />
           Full-stack developer focused on bridging academic excellence with industry-standard software solutions.
         </p>
         <div class="hero-btns">
@@ -22,7 +22,7 @@
       </div>
     </main>
 
-    <!-- TECHNICAL EXPERTISE SECTION (Kept from before) -->
+    <!-- TECHNICAL EXPERTISE SECTION -->
     <section id="about-detail" class="expertise-section">
       <div class="content-box">
         <h2 class="section-title">Technical Expertise</h2>
@@ -46,7 +46,7 @@
       </div>
     </section>
 
-    <!-- PORTFOLIO SECTION (Refactored to 2 Columns) -->
+    <!-- PORTFOLIO SECTION -->
     <section id="projects-section" class="projects-area">
       <div class="content-box">
         <h2 class="section-title">Featured Projects</h2>
@@ -70,7 +70,7 @@
             </div>
           </a>
 
-          <!-- 2. BLOOM AND THRIVE (Modal) -->
+          <!-- 2. BLOOM AND THRIVE (Modal Gallery) -->
           <div class="project-card clickable" @click="openModal('bloom')">
             <div class="project-header">
               <span class="tag green">E-Commerce Logic</span>
@@ -85,7 +85,7 @@
             <div class="view-hint">Click to view project</div>
           </div>
 
-          <!-- 3. PUP KIOSK MAP (Modal) -->
+          <!-- 3. PUP KIOSK MAP (Modal Iframe) -->
           <div class="project-card clickable" @click="openModal('kiosk')">
             <div class="project-header">
               <span class="tag blue">Interactive Map</span>
@@ -95,12 +95,12 @@
             <p class="role-tag">Developer</p>
             <p class="desc">Digital navigation system for PUP Sta. Mesa. Includes an interactive legend and detailed information modals for 50+ campus buildings.</p>
             <div class="stack">
-              <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>UI Design</span>
+              <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>Interactive UI</span>
             </div>
-            <div class="view-hint">Click to view map screens</div>
+            <div class="view-hint">Click to launch map</div>
           </div>
 
-          <!-- 4. JAKE'S COFFEE SHOP (Modal) -->
+          <!-- 4. JAKE'S COFFEE SHOP (Modal Gallery) -->
           <div class="project-card clickable" @click="openModal('coffee')">
             <div class="project-header">
               <span class="tag orange">Business Web App</span>
@@ -112,7 +112,7 @@
             <div class="stack">
               <span>HTML5</span> <span>CSS3</span> <span>Multimedia</span>
             </div>
-            <div class="view-hint">Click to view screenshots</div>
+            <div class="view-hint">Click to view project</div>
           </div>
 
         </div>
@@ -122,7 +122,7 @@
     <!-- DYNAMIC PROJECT MODAL -->
     <Transition name="fade">
       <div v-if="isModalOpen" class="modal-overlay" @click.self="closeModal">
-        <div class="modal-container">
+        <div class="modal-container" :class="{ 'wide-modal': activeProject.type === 'iframe' }">
           <button class="close-modal" @click="closeModal">&times;</button>
           
           <div class="modal-header">
@@ -130,7 +130,13 @@
             <p>{{ activeProject.subtitle }}</p>
           </div>
 
-          <div class="screenshot-gallery">
+          <!-- IFRAME MODE (For Kiosk Map) -->
+          <div v-if="activeProject.type === 'iframe'" class="iframe-wrapper">
+             <iframe :src="activeProject.projectUrl" frameborder="0" class="project-iframe"></iframe>
+          </div>
+
+          <!-- GALLERY MODE (For Bloom and Coffee) -->
+          <div v-else class="screenshot-gallery">
              <div v-for="(img, index) in activeProject.images" :key="index" class="gallery-item">
                <p class="image-label">{{ img.label }}</p>
                <img :src="img.url" :alt="img.label">
@@ -153,6 +159,7 @@ const projectsData = {
   bloom: {
     title: "Bloom & Thrive",
     subtitle: "Agriculture E-Commerce & Inventory System",
+    type: "gallery",
     images: [
       { label: "Home", url: new URL('../assets/home_bloom.jpg', import.meta.url).href },
       { label: "Register", url: new URL('../assets/register_bloom.jpg', import.meta.url).href },
@@ -162,21 +169,16 @@ const projectsData = {
   kiosk: {
     title: "PUP Kiosk Map",
     subtitle: "Interactive Campus Navigation Tool",
-    images: [
-      { label: "Welcome Screen", url: new URL('../assets/landing_kiosk.jpg', import.meta.url).href },
-      { label: "Full Map View", url: new URL('../assets/map_kiosk.jpg', import.meta.url).href },
-      { label: "Building Details View", url: new URL('../assets/number_kiosk.jpg', import.meta.url).href }
-    ]
+    type: "iframe",
+    projectUrl: "/kiosk/index.html",
+    images: []
   },
   coffee: {
     title: "Jake's Coffee Shop",
     subtitle: "Business Management & Menu System",
-    images: [
-      { label: "Home Interface", url: new URL('../assets/home_jake.jpg', import.meta.url).href },
-      { label: "Digital Menu", url: new URL('../assets/menu_jake.jpg', import.meta.url).href },
-      { label: "Music", url: new URL('../assets/music_jake.jpg', import.meta.url).href },
-      { label: "Hiring", url: new URL('../assets/job_jake.jpg', import.meta.url).href }
-    ]
+    type: "iframe",
+    projectUrl: "/coffee/index.html",
+    images: []
   }
 }
 
@@ -201,7 +203,7 @@ const scrollToProjects = () => {
 <style scoped>
 .page-container { background-color: #0a0a0c; color: white; }
 
-/* HERO (Consistent) */
+/* HERO */
 .hero { display: flex; align-items: center; justify-content: center; gap: 80px; padding: 0 50px; height: 100vh; }
 .hero-content { max-width: 550px; }
 .main-title { font-size: 5rem; font-weight: 800; line-height: 1.0; margin-bottom: 25px; }
@@ -224,44 +226,18 @@ const scrollToProjects = () => {
 .expertise-item h3 { font-size: 1.4rem; margin-bottom: 15px; color: #fff; }
 .expertise-item p { color: #888; line-height: 1.6; font-size: 0.95rem; }
 
-/* PROJECT SECTION - TWO COLUMNS */
+/* PROJECTS SECTION */
 .projects-area { padding: 120px 50px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
 .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 60px; font-weight: 700; color: white; }
-
-/* FIXED: Changed to explicit 2-column grid for desktop */
-.project-grid { 
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 30px; 
-  max-width: 1100px; 
-  margin: 0 auto; 
-}
+.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1100px; margin: 0 auto; }
 
 .project-card { 
-  background: rgba(255, 255, 255, 0.02); 
-  padding: 40px; 
-  border-radius: 24px; 
-  border: 1px solid rgba(255, 255, 255, 0.05); 
-  transition: 0.4s; 
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  background: rgba(255, 255, 255, 0.02); padding: 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.05); 
+  transition: 0.4s; position: relative; height: 100%; display: flex; flex-direction: column;
 }
-
-/* Featured glow for SkillConnect */
-.project-card.featured {
-  border-color: rgba(124, 114, 255, 0.2);
-  background: linear-gradient(145deg, rgba(124, 114, 255, 0.05), rgba(10, 10, 12, 0));
-}
-
+.project-card.featured { border-color: rgba(124, 114, 255, 0.2); background: linear-gradient(145deg, rgba(124, 114, 255, 0.05), rgba(10, 10, 12, 0)); }
 .clickable { cursor: pointer; }
-.clickable:hover, .project-card-link:hover .project-card { 
-  border-color: #7c72ff; 
-  background: rgba(124, 114, 255, 0.04); 
-  transform: translateY(-8px); 
-}
-
+.clickable:hover, .project-card-link:hover .project-card { border-color: #7c72ff; background: rgba(124, 114, 255, 0.04); transform: translateY(-8px); }
 .project-card-link { text-decoration: none; color: inherit; }
 
 .project-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
@@ -278,14 +254,21 @@ const scrollToProjects = () => {
 .stack { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; }
 .stack span { font-size: 0.65rem; color: #666; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.1); }
 
-/* MODAL STYLING (Kept consistent) */
+/* MODAL STYLING */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(15px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; }
-.modal-container { background: #121214; width: 100%; max-width: 1000px; max-height: 90vh; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 50px; position: relative; overflow-y: auto; }
+.modal-container { background: #121214; width: 100%; max-width: 1000px; max-height: 90vh; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 50px; position: relative; overflow-y: auto; transition: width 0.3s ease; }
+.wide-modal { max-width: 1300px; width: 95%; }
+
 .close-modal { position: absolute; top: 20px; right: 30px; background: none; border: none; color: white; font-size: 2.5rem; cursor: pointer; opacity: 0.5; }
 .close-modal:hover { opacity: 1; }
 .modal-header { margin-bottom: 50px; text-align: center; }
 .modal-header h2 { font-size: 2.5rem; color: #7c72ff; margin-bottom: 10px; }
 .modal-header p { color: #666; }
+
+/* IFRAME STYLING */
+.iframe-wrapper { width: 100%; height: 70vh; border-radius: 20px; overflow: hidden; background: #fff; border: 1px solid rgba(255, 255, 255, 0.1); }
+.project-iframe { width: 100%; height: 100%; }
+
 .screenshot-gallery { display: flex; flex-direction: column; gap: 60px; }
 .gallery-item { border-radius: 20px; overflow: hidden; background: #0a0a0c; border: 1px solid #222; }
 .image-label { padding: 15px 25px; font-size: 0.85rem; color: #555; text-transform: uppercase; font-weight: 800; border-bottom: 1px solid #222; background: #0d0d0f; }
@@ -297,8 +280,8 @@ const scrollToProjects = () => {
 
 @media (max-width: 900px) {
   .hero { flex-direction: column-reverse; text-align: center; height: auto; padding-top: 150px; gap: 40px; }
-  .main-title { font-size: 3rem; }
-  .project-grid { grid-template-columns: 1fr; } /* Stack on mobile */
+  .project-grid { grid-template-columns: 1fr; }
   .modal-container { padding: 20px; }
+  .iframe-wrapper { height: 50vh; }
 }
 </style>

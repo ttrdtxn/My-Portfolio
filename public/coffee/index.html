@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake's Coffee Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Jake's Coffee Shop</h1>
+        </header>
+
+        <div class="content-wrapper">
+            <nav class="sidebar">
+                <ul>
+                    <!-- Links now call a function to switch sections -->
+                    <li><a href="javascript:void(0)" onclick="showSection('Home')">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="showSection('Menu')">Menu</a></li>
+                    <li><a href="javascript:void(0)" onclick="showSection('Music')">Music</a></li>
+                    <li><a href="javascript:void(0)" onclick="showSection('Jobs')">Jobs</a></li>
+                </ul>
+            </nav>
+
+            <div class="main">
+                <!-- Home Section (Visible by default) -->
+                <section id="Home" class="content-section active">
+                    <div class="text-content">
+                        <p>Come in and experience...</p>
+                        <ul>
+                            <li>Specialty Coffee and Tea</li>
+                            <li>Freshly made sandwiches</li>
+                            <li>Bagels, Muffins, and Organic Snacks</li>
+                            <li>Music and Poetry Readings</li>
+                            <li>Open mic nights</li>
+                        </ul>
+                        <p>23 Pine Road, Nottingham, NG1 5YU<br>0115 9324567</p>
+                    </div>
+                    <img src="coffee.jpg" alt="Coffee" class="main-img">
+                </section>
+
+                <!-- Menu Section -->
+                <section id="Menu" class="content-section">
+                    <div class="text-content">
+                        <h2>Our Menu</h2>
+                        <ul class="menu-items">
+                            <li><strong>Coffee:</strong> Espresso, Latte, Cappuccino</li>
+                            <li><strong>Teas:</strong> Green, Herbal, Chai</li>
+                            <li><strong>Pastries:</strong> Croissants, Muffins</li>
+                            <li><strong>Food:</strong> Fresh Sandwiches, Bagels</li>
+                        </ul>
+                    </div>
+                    <img src="tinapay.png" alt="Menu Items" class="main-img">
+                </section>
+
+                <!-- Music Section -->
+                <section id="Music" class="content-section">
+                    <div class="text-content">
+                        <h2>Live Music</h2>
+                    <p>Join us for live music every Friday night!</p>
+                    <p>Featuring local artists playing a mix of genres, including jazz, acoustic, and indie.</p>
+                    <ul>
+                        <li>
+                            <p><i><b>Espresso</b></i></p>
+                            <audio controls>
+                                <source src="espresso.mp3" type="audio/mpeg">
+                                
+                            </audio>
+                        </li>
+                    </div>
+                </section>
+
+                <!-- Jobs Section -->
+                <section id="Jobs" class="content-section">
+                    <div class="text-content">
+                        <p>We're hiring!</p>
+                    <p>Join our team and be part of the Jake's Coffee family. Current positions available:</p>
+                    <ul><b>
+                        <li>Barista</li>
+                        <li>Server</li>
+                        <li>Kitchen Staff</li></b>
+                    </ul>
+                    <p><b>Interested? </b>Send your resume to <a href="mailto:jake@coffee.com">jake@coffee.com</a></p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Copyright © 2011 Jake's Coffee House | <a href="mailto:jake@coffee.com">jake@coffee.com</a></p>
+        </footer>
+    </div>
+
+    <!-- Script to handle switching sections -->
+    <script>
+        function showSection(sectionId) {
+            // 1. Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // 2. Show the specific section clicked
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+/* = Document & Layout
+**********************************************************************/
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    background-color: #f7f8fa;
+    font-family: 'Arimo', sans-serif;
+}
+
+.app-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* = Map View (Left Side)
+**********************************************************************/
+.map-view {
+    flex: 0 0 65%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+.map-header {
+    padding: 20px 50px;
+    background: #ffffff;
+}
+
+.map-header p {
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: 3px;
+    font-size: 14px;
+    color: #333;
+}
+
+.map-header span {
+    font-weight: 300;
+    color: #999;
+}
+
+.contain-map {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.damap {
+    max-width: 95%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* = Info Panel (Right Side)
+**********************************************************************/
+.info-panel {
+    flex: 0 0 35%;
+    background-color: #f7f8fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.aesthetic-card {
+    width: 90%;
+    height: 85%;
+    background: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+/* = IFRAME CONTENT FIXES (Important!)
+**********************************************************************/
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+}
+
+/* This part styles the elements INSIDE your sub-HTML files */
+.m {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.m-title {
+    padding: 20px 25px !important;
+    background: #fff !important;
+    border-bottom: 1px solid #eee !important;
+}
+
+.m-title h2 {
+    font-size: 1.4rem !important;
+    color: #111 !important;
+    margin: 0 !important;
+}
+
+.m-contain-img {
+    width: 100% !important;
+    height: 220px !important; /* Fixed height for the image area */
+    background: #f9f9f9 !important; /* Light grey so if image is small it looks clean */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+}
+
+.m-contain-img img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important; /* Prevents stretching */
+    height: auto !important;
+    object-fit: contain !important; /* Shows the FULL picture, no zooming */
+}
+
+.m-content {
+    flex: 1 !important; /* Takes up remaining space */
+    padding: 20px 25px !important;
+    overflow-y: auto !important; /* Allows scrolling for long descriptions */
+    color: #666 !important;
+    line-height: 1.6 !important;
+    font-size: 15px !important;
+}
+
+/* Custom scrollbar for the description */
+.m-content::-webkit-scrollbar {
+    width: 5px;
+}
+.m-content::-webkit-scrollbar-thumb {
+    background: #eee;
+    border-radius: 10px;
+}
+
+/* Hide UI elements from sub-files */
+.close, #kl, .m-title .close {
+    display: none !important;
+}
