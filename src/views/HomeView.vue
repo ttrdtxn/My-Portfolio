@@ -3,12 +3,6 @@
     <!-- HERO SECTION (Kept from before) -->
     <main class="hero">
       <div class="hero-content">
-        <div class="tech-badges">
-          <span class="badge">Vue.js</span>
-          <span class="badge">Node.js</span>
-          <span class="badge">SQL/MongoDB</span>
-          <span class="badge">React</span>
-        </div>
         <h1 class="main-title">Hello, I'm <br /><span class="highlight">Trisha.</span></h1>
         <p class="subtitle">
           Computer Engineering Technology student at <strong>PUP</strong>. <br />
@@ -160,28 +154,28 @@ const projectsData = {
     title: "Bloom & Thrive",
     subtitle: "Agriculture E-Commerce & Inventory System",
     images: [
-      { label: "Home", url: "src/assets/home_bloom.jpg" },
-      { label: "Register", url: "src/assets/register_bloom.jpg" },
-      { label: "Login", url: "src/assets/login_bloom.jpg" }
+      { label: "Home", url: new URL('../assets/home_bloom.jpg', import.meta.url).href },
+      { label: "Register", url: new URL('../assets/register_bloom.jpg', import.meta.url).href },
+      { label: "Login", url: new URL('../assets/login_bloom.jpg', import.meta.url).href }
     ]
   },
   kiosk: {
     title: "PUP Kiosk Map",
     subtitle: "Interactive Campus Navigation Tool",
     images: [
-      { label: "Welcome Screen", url: "src/assets/landing_kiosk.jpg" },
-      { label: "Full Map View", url: "src/assets/map_kiosk.jpg" },
-      { label: "Building Details View", url: "src/assets/number_kiosk.jpg" }
+      { label: "Welcome Screen", url: new URL('../assets/landing_kiosk.jpg', import.meta.url).href },
+      { label: "Full Map View", url: new URL('../assets/map_kiosk.jpg', import.meta.url).href },
+      { label: "Building Details View", url: new URL('../assets/number_kiosk.jpg', import.meta.url).href }
     ]
   },
   coffee: {
     title: "Jake's Coffee Shop",
     subtitle: "Business Management & Menu System",
     images: [
-      { label: "Home Interface", url: "src/assets/home_jake.jpg" },
-      { label: "Digital Menu", url: "src/assets/menu_jake.jpg" },
-      { label: "Music", url: "src/assets/music_jake.jpg" },
-      { label: "Live Events", url: "src/assets/job_jake.jpg" }
+      { label: "Home Interface", url: new URL('../assets/home_jake.jpg', import.meta.url).href },
+      { label: "Digital Menu", url: new URL('../assets/menu_jake.jpg', import.meta.url).href },
+      { label: "Music", url: new URL('../assets/music_jake.jpg', import.meta.url).href },
+      { label: "Hiring", url: new URL('../assets/job_jake.jpg', import.meta.url).href }
     ]
   }
 }
