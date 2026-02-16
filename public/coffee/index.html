@@ -7,15 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <div class="container">
+        <!-- Header Section -->
         <header class="header">
             <h1>Jake's Coffee Shop</h1>
         </header>
 
         <div class="content-wrapper">
+            <!-- Navigation Sidebar -->
             <nav class="sidebar">
                 <ul>
-                    <!-- Links now call a function to switch sections -->
                     <li><a href="javascript:void(0)" onclick="showSection('Home')">Home</a></li>
                     <li><a href="javascript:void(0)" onclick="showSection('Menu')">Menu</a></li>
                     <li><a href="javascript:void(0)" onclick="showSection('Music')">Music</a></li>
@@ -23,8 +25,10 @@
                 </ul>
             </nav>
 
-            <div class="main">
-                <!-- Home Section (Visible by default) -->
+            <!-- Main Content Container -->
+            <main class="main">
+                
+                <!-- Home Section -->
                 <section id="Home" class="content-section active">
                     <div class="text-content">
                         <p>Come in and experience...</p>
@@ -35,9 +39,12 @@
                             <li>Music and Poetry Readings</li>
                             <li>Open mic nights</li>
                         </ul>
-                        <p>23 Pine Road, Nottingham, NG1 5YU<br>0115 9324567</p>
+                        <p class="address">
+                            23 Pine Road, Nottingham, NG1 5YU<br>
+                            Tel: 0115 9324567
+                        </p>
                     </div>
-                    <img src="coffee.jpg" alt="Coffee" class="main-img">
+                    <img src="coffee.jpg" alt="Coffee Cup" class="main-img">
                 </section>
 
                 <!-- Menu Section -->
@@ -45,62 +52,73 @@
                     <div class="text-content">
                         <h2>Our Menu</h2>
                         <ul class="menu-items">
-                            <li><strong>Coffee:</strong> Espresso, Latte, Cappuccino</li>
-                            <li><strong>Teas:</strong> Green, Herbal, Chai</li>
-                            <li><strong>Pastries:</strong> Croissants, Muffins</li>
-                            <li><strong>Food:</strong> Fresh Sandwiches, Bagels</li>
+                            <li><strong>Coffee:</strong> Espresso, Latte, Cappuccino, Americano</li>
+                            <li><strong>Teas:</strong> Green, Herbal, Chai, Earl Grey</li>
+                            <li><strong>Pastries:</strong> Croissants, Muffins, Cookies</li>
+                            <li><strong>Food:</strong> Fresh Sandwiches, Bagels, Paninis</li>
                         </ul>
                     </div>
-                    <img src="tinapay.png" alt="Menu Items" class="main-img">
+                    <img src="tinapay.png" alt="Fresh Pastries" class="main-img">
                 </section>
 
                 <!-- Music Section -->
                 <section id="Music" class="content-section">
                     <div class="text-content">
                         <h2>Live Music</h2>
-                    <p>Join us for live music every Friday night!</p>
-                    <p>Featuring local artists playing a mix of genres, including jazz, acoustic, and indie.</p>
-                    <ul>
-                        <li>
-                            <p><i><b>Espresso</b></i></p>
+                        <p>Join us for live music every Friday night!</p>
+                        <p>Featuring local artists playing jazz, acoustic, and indie.</p>
+                        <div class="audio-box">
+                            <p><i><b>Now Playing: Espresso</b></i></p>
                             <audio controls>
                                 <source src="espresso.mp3" type="audio/mpeg">
-                                
+                                Your browser does not support the audio element.
                             </audio>
-                        </li>
+                        </div>
                     </div>
+                    <!-- Optional: You can add an image here too if you like -->
                 </section>
 
                 <!-- Jobs Section -->
                 <section id="Jobs" class="content-section">
                     <div class="text-content">
-                        <p>We're hiring!</p>
-                    <p>Join our team and be part of the Jake's Coffee family. Current positions available:</p>
-                    <ul><b>
-                        <li>Barista</li>
-                        <li>Server</li>
-                        <li>Kitchen Staff</li></b>
-                    </ul>
-                    <p><b>Interested? </b>Send your resume to <a href="mailto:jake@coffee.com">jake@coffee.com</a></p>
+                        <h2>Join the Team</h2>
+                        <p>We're hiring! Join our team and be part of the Jake's Coffee family. Current positions available:</p>
+                        <ul>
+                            <li><b>Barista</b> (Full-time & Part-time)</li>
+                            <li><b>Server</b></li>
+                            <li><b>Kitchen Staff</b></li>
+                        </ul>
+                        <p class="apply-info">
+                            <b>Interested?</b> Send your resume to: <br>
+                            <a href="mailto:jake@coffee.com">jake@coffee.com</a>
+                        </p>
                     </div>
                 </section>
-            </div>
+
+            </main>
         </div>
 
+        <!-- Footer Section -->
         <footer class="footer">
-            <p>Copyright © 2011 Jake's Coffee House | <a href="mailto:jake@coffee.com">jake@coffee.com</a></p>
+            <p>Copyright © 2011 Jake's Coffee House | Nottingham</p>
+            <p><a href="mailto:jake@coffee.com">jake@coffee.com</a></p>
         </footer>
     </div>
 
-    <!-- Script to handle switching sections -->
+    <!-- Tab Switching Script -->
     <script>
         function showSection(sectionId) {
-            // 1. Hide all sections
+            // 1. Hide all sections by removing the 'active' class
             const sections = document.querySelectorAll('.content-section');
-            sections.forEach(sec => sec.classList.remove('active'));
+            sections.forEach(sec => {
+                sec.classList.remove('active');
+            });
 
-            // 2. Show the specific section clicked
-            document.getElementById(sectionId).classList.add('active');
+            // 2. Show the clicked section by adding the 'active' class
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
         }
     </script>
 </body>

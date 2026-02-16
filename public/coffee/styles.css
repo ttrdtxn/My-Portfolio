@@ -1,4 +1,4 @@
-/* Core Layout */
+/* --- Core Layout --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #fdfae6; /* Light cream background */
@@ -12,10 +12,11 @@ body {
     margin: 0 auto;
     border: 2px solid #2c1b0e;
     background-color: #f1e8b0;
-    box-shadow: 15px 15px 0px #ccaa66; /* Aesthetic shadow */
+    box-shadow: 15px 15px 0px #ccaa66; /* Aesthetic block shadow */
+    overflow: hidden; /* Keeps children inside borders */
 }
 
-/* Header */
+/* --- Header --- */
 .header {
     background-color: #ccaa66;
     padding: 25px;
@@ -30,11 +31,12 @@ body {
     text-transform: uppercase;
 }
 
-/* Sidebar & Navigation */
+/* --- Content Wrapper (Sidebar + Main) --- */
 .content-wrapper {
     display: flex;
 }
 
+/* --- Sidebar Navigation --- */
 .sidebar {
     width: 150px;
     background-color: #E8D882;
@@ -51,7 +53,7 @@ body {
 .sidebar li a {
     display: block;
     padding: 12px 20px;
-    color: black; /* Your requirement */
+    color: black;
     text-decoration: none;
     font-weight: bold;
     font-size: 14px;
@@ -63,31 +65,45 @@ body {
     padding-left: 25px;
 }
 
-/* Main Content Area - THE FIXED CONTAINER */
+/* --- Main Content Area (Fixed Container) --- */
 .main {
     flex: 1;
     padding: 30px;
-    height: 400px; /* Forces all pages to be the same height */
-    overflow-y: auto; /* Adds a scroll if content is too big */
+    height: 420px; /* Fixed height for consistency on desktop */
+    overflow-y: auto; /* Scroll inside if text is long */
     position: relative;
     background-color: #f9f3cf;
 }
 
-/* Section Switching Logic */
+/* --- Section Switching Logic --- */
 .content-section {
-    display: none; /* Hidden by default */
+    display: none; /* All sections hidden by default */
     animation: fadeIn 0.4s ease;
     width: 100%;
     justify-content: space-between;
 }
 
+/* This class is added via JavaScript */
 .content-section.active {
-    display: flex; /* Shown only when active */
+    display: flex; 
 }
 
-/* Content Details */
+/* --- Inner Content Details --- */
 .text-content {
     flex: 1;
+}
+
+.text-content h2 {
+    margin-top: 0;
+}
+
+.text-content ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.text-content li {
+    margin-bottom: 8px;
 }
 
 .main-img {
@@ -104,9 +120,14 @@ body {
     padding: 15px;
     background: #e8d882;
     border-radius: 5px;
+    border: 1px solid #ccaa66;
 }
 
-/* Footer */
+.audio-box audio {
+    width: 100%;
+}
+
+/* --- Footer --- */
 .footer {
     background-color: #ccaa66;
     text-align: center;
@@ -115,13 +136,93 @@ body {
     font-size: 12px;
 }
 
+.footer p {
+    margin: 5px 0;
+}
+
 .footer a {
     color: black;
     font-weight: bold;
+    text-decoration: none;
 }
 
-/* Animation */
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* --- Animations --- */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- MOBILE RESPONSIVE STYLES (Scaling) --- */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; 
+    }
+
+    .container {
+        box-shadow: 8px 8px 0px #ccaa66;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    /* Stack sidebar on top of main content */
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #2c1b0e;
+        padding: 0;
+    }
+
+    /* Make menu links horizontal on phones */
+    .sidebar ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .sidebar li {
+        flex: 1;
+        text-align: center;
+    }
+
+    .sidebar li a {
+        padding: 15px 5px;
+        font-size: 12px;
+    }
+
+    .main {
+        height: auto; /* Let it grow on mobile */
+        min-height: 400px;
+        padding: 20px;
+    }
+
+    /* Stack text and image vertically on phones */
+    .content-section.active {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-content {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .main-img {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        margin-left: 0;
+    }
+    
+    .footer {
+        font-size: 11px;
+    }
 }
