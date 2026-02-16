@@ -5,7 +5,7 @@
       <div class="hero-content">
         <h1 class="main-title">Hello, I'm <br /><span class="highlight">Trisha.</span></h1>
         <p class="subtitle">
-          Computer Engineering Technology graduate at <strong>PUP</strong>. <br />
+          Computer Engineering Technology Graduate at <strong>PUP</strong>. <br />
           Full-stack developer focused on bridging academic excellence with industry-standard software solutions.
         </p>
         <div class="hero-btns">
@@ -201,7 +201,7 @@ const scrollToProjects = () => {
 .page-container { background-color: #0a0a0c; color: white; }
 
 /* HERO */
-.hero { display: flex; align-items: center; justify-content: center; gap: 80px; padding: 0 50px; height: 100vh; }
+.hero { display: flex; align-items: center; justify-content: center; gap: 80px; padding: 0 50px; min-height: 100vh; }
 .hero-content { max-width: 550px; }
 .main-title { font-size: 5rem; font-weight: 800; line-height: 1.0; margin-bottom: 25px; }
 .highlight { color: #7c72ff; background: linear-gradient(to right, #7c72ff, #00d2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -211,13 +211,13 @@ const scrollToProjects = () => {
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(124, 114, 255, 0.3); }
 .btn-secondary { background: rgba(255,255,255,0.05); color: white; border: 1px solid #333; padding: 14px 28px; border-radius: 12px; cursor: pointer; transition: 0.3s; }
 
-.hero-image-container { width: 380px; }
+.hero-image-container { width: 380px; flex-shrink: 0; }
 .image-card { width: 100%; aspect-ratio: 1/1; background: #121214; border-radius: 40px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); }
 .image-card img { width: 100%; height: 100%; object-fit: cover; }
 
 /* EXPERTISE SECTION */
 .expertise-section { padding: 100px 50px; background-color: #0d0d0f; border-top: 1px solid rgba(255, 255, 255, 0.05); }
-.expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+.expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
 .expertise-item { background: rgba(255, 255, 255, 0.02); padding: 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.3s; text-align: left; }
 .expertise-item i { font-size: 2.5rem; color: #7c72ff; margin-bottom: 20px; display: block; }
 .expertise-item h3 { font-size: 1.4rem; margin-bottom: 15px; color: #fff; }
@@ -255,7 +255,6 @@ const scrollToProjects = () => {
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(15px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; }
 .modal-container { background: #121214; width: 100%; max-width: 1000px; max-height: 90vh; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 50px; position: relative; overflow-y: auto; transition: width 0.3s ease; }
 .wide-modal { max-width: 1300px; width: 95%; }
-
 .close-modal { position: absolute; top: 20px; right: 30px; background: none; border: none; color: white; font-size: 2.5rem; cursor: pointer; opacity: 0.5; }
 .close-modal:hover { opacity: 1; }
 .modal-header { margin-bottom: 50px; text-align: center; }
@@ -271,14 +270,32 @@ const scrollToProjects = () => {
 .image-label { padding: 15px 25px; font-size: 0.85rem; color: #555; text-transform: uppercase; font-weight: 800; border-bottom: 1px solid #222; background: #0d0d0f; }
 .gallery-item img { width: 100%; display: block; }
 
+/* TABLET AND MOBILE BREAKPOINTS */
+@media (max-width: 900px) {
+  .hero { flex-direction: column-reverse; text-align: center; height: auto; padding: 120px 20px 60px; gap: 40px; }
+  .hero-content { max-width: 100%; }
+  .main-title { font-size: 3.5rem; }
+  .hero-btns { justify-content: center; }
+  .hero-image-container { width: 280px; }
+  
+  .expertise-grid, .project-grid { grid-template-columns: 1fr; gap: 20px; }
+  .expertise-section, .projects-area { padding: 80px 20px; }
+  .section-title { font-size: 2rem; margin-bottom: 40px; }
+  
+  .modal-container { padding: 25px; border-radius: 0; height: 100%; max-height: 100vh; width: 100%; }
+  .modal-header h2 { font-size: 1.8rem; }
+  .iframe-wrapper { height: 60vh; }
+}
+
+@media (max-width: 600px) {
+  .main-title { font-size: 2.8rem; }
+  .hero-btns { flex-direction: column; width: 100%; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .hero-image-container { width: 220px; }
+  .expertise-item, .project-card { padding: 30px 20px; }
+}
+
 /* ANIMATION */
 .fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
-
-@media (max-width: 900px) {
-  .hero { flex-direction: column-reverse; text-align: center; height: auto; padding-top: 150px; gap: 40px; }
-  .project-grid { grid-template-columns: 1fr; }
-  .modal-container { padding: 20px; }
-  .iframe-wrapper { height: 50vh; }
-}
 </style>
