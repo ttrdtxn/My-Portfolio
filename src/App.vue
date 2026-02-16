@@ -2,69 +2,87 @@
   <div class="app-wrapper">
     <!-- Fixed Navbar -->
     <nav class="navbar">
-      <router-link to="/" class="logo">trisha.</router-link>
+      <router-link to="/" class="logo" @click="scrollToTop">trisha.</router-link>
       <div class="nav-links">
-        <!-- Opens dedicated Resume Page -->
         <router-link to="/resume" class="nav-item">RESUME</router-link> 
         
-        <!-- Logic: If not on Home, go Home then Scroll. If on Home, just Scroll. -->
+        <!-- NEW: Expertise Scroll Link -->
+        <a href="#" @click.prevent="handleExpertiseClick" class="nav-item">EXPERTISE</a>
+        
         <a href="#" @click.prevent="handleProjectClick" class="nav-item">PROJECTS</a>
       </div>
     </nav>
 
     <!-- Page Content -->
     <router-view />
+
+    <!-- BACK TO TOP BUTTON -->
+    <Transition name="fade">
+      <button 
+        v-if="showBackToTop" 
+        @click="scrollToTop" 
+        class="back-to-top"
+        title="Back to top"
+      >
+        <i class="bi bi-chevron-up"></i>
+      </button>
+    </Transition>
   </div>
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
 const route = useRoute()
+const showBackToTop = ref(false)
 
-const handleProjectClick = async () => {
+// LOGIC FOR EXPERTISE LINK
+const handleExpertiseClick = async () => {
   if (route.path !== '/') {
-    // 1. If we are on the Resume page, navigate Home first
     await router.push('/')
-    // 2. Small delay to allow the Home page to load before scrolling
-    setTimeout(() => {
-      scrollToProjects()
-    }, 300)
+    setTimeout(() => { scrollToSection('about-detail') }, 300)
   } else {
-    // 3. If already Home, scroll immediately
-    scrollToProjects()
+    scrollToSection('about-detail')
   }
 }
 
-const scrollToProjects = () => {
-  const element = document.getElementById('projects-section');
+// LOGIC FOR PROJECTS LINK
+const handleProjectClick = async () => {
+  if (route.path !== '/') {
+    await router.push('/')
+    setTimeout(() => { scrollToSection('projects-section') }, 300)
+  } else {
+    scrollToSection('projects-section')
+  }
+}
+
+// Reusable scroll function
+const scrollToSection = (id) => {
+  const element = document.getElementById(id);
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
   }
 }
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+const handleScroll = () => {
+  showBackToTop.value = window.scrollY > 400
+}
+
+onMounted(() => { window.addEventListener('scroll', handleScroll) })
+onUnmounted(() => { window.removeEventListener('scroll', handleScroll) })
 </script>
 
 <style>
 /* GLOBAL STYLES */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: #0a0a0c; color: #ffffff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-body {
-  background-color: #0a0a0c;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-}
-
-.app-wrapper {
-  min-height: 100vh;
-}
-
-/* NAVBAR STYLING */
 .navbar {
   z-index: 1000;
   position: fixed;
@@ -78,35 +96,54 @@ body {
   backdrop-filter: blur(15px);
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -1px;
-  text-decoration: none;
+.logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: white; cursor: pointer; }
+
+/* Adjusted gap for 3 nav items */
+.nav-links { display: flex; gap: 30px; }
+
+.nav-item { 
+  color: #888; 
+  text-decoration: none; 
+  font-size: 0.75rem; 
+  font-weight: 700; 
+  letter-spacing: 1px; 
+  transition: 0.3s;
+}
+.nav-item:hover, .router-link-active { color: #ffffff; }
+
+/* BACK TO TOP BUTTON */
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background-color: #7c72ff;
   color: white;
-}
-
-.nav-links {
+  border: none;
+  border-radius: 50%;
   display: flex;
-  gap: 40px;
-}
-
-.nav-item {
-  color: #888;
-  text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 1px;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1500;
+  box-shadow: 0 10px 20px rgba(124, 114, 255, 0.3);
   transition: 0.3s;
 }
 
-.nav-item:hover, .router-link-active {
-  color: #ffffff;
+.back-to-top:hover { transform: translateY(-5px); background-color: #6a61e6; }
+
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+  .navbar { padding: 20px 25px; }
+  .logo { font-size: 1.2rem; }
+  .nav-links { gap: 15px; } /* Smaller gap to fit 3 items on small screens */
+  .nav-item { font-size: 0.65rem; }
+  .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    padding: 20px 30px;
-  }
-}
+/* FADE ANIMATION */
+.fade-enter-active, .fade-leave-active { transition: opacity 0.4s ease, transform 0.4s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; transform: translateY(20px); }
 </style>
