@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Seller Dashboard</title>
+    <style>
+        .dashboard {
+            text-align: center;
+            margin-top: 150px;
+        }
+
+        .wallet-btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            /* margin: 4px 2px; */
+            cursor: pointer;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .wallet-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+      <div class="navigation">
+        <a href="index.html"><img src="img/bloomAndThrive.jpeg" alt="Logo" width="120" height="70" style="border-radius: 5px;"></a>
+        <div class="menu">
+          <a href="seller.html">Dashboard</a>
+          <a href="HTML File Extensions/seller-products.html">Products</a>
+          <a href="orders.html">Order Queries</a>
+          <button class="btn-2 btn-link" onclick="window.location.href='logout.html'">Logout</button>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="wallet-btn"><i class="fa-solid fa-wallet"></i></button>
+        <button class="btn-2 logIn-btn">Account</button>
+      </div>
+    </nav>
+  
+    <section class="dashboard"> 
+      <h2>Add New Product</h2>
+      <form id="addProductForm" method="POST">
+        <!-- 1. Product Type as Dropdown -->
+        <label for="productType">Product Type:</label>
+        <select id="productType" name="type" required>
+          <option value="">Select Type</option>
+          <option value="Grains and Cereals">Grains and Cereals</option>
+          <option value="Animal Feeds">Animal Feeds</option>
+          <option value="Fertilizers">Fertilizers</option>
+          <option value="Crops">Crops</option>
+        </select>
+  
+        <!-- 2. Product Name as Dropdown (populated based on type) -->
+        <label for="productName">Product Name:</label>
+        <select id="productName" name="name" required>
+          <!-- Options will be populated via JS -->
+        </select>
+  
+        <!-- 3. Product Cost -->
+        <label for="price">Product Cost:</label>
+        <input type="number" step="0.01" name="price" id="price" placeholder="Cost per unit" required>
+  
+        <!-- 4. Product Stock -->
+        <label for="stock">Product Stock:</label>
+        <input type="number" name="stock" id="stock" placeholder="Available Stock" required>
+  
+        <!-- 5. Seller Name -->
+        <label for="sellerName">Seller Name:</label>
+        <input type="text" name="seller_name" id="sellerName" placeholder="Seller Name" required>
+        <input type="hidden" name="seller_id" value="123">
+  
+        <!-- 6. Brief Description -->
+        <label for="description">Brief Description:</label>
+        <textarea name="description" id="description" placeholder="Description"></textarea>
+  
+        <button type="submit">Add Product</button>
+      </form>
+    </section>
+    
+    <!-- Include the dropdowns handler before seller.js -->
+    <script src="js/dropdowns.js"></script>
+    <script src="js/seller.js"></script>
+  </body>
+
+</html>

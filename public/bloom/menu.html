@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="menu-style.css">
+
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>Bloom and Thrive</title>
+</head>
+
+<body>
+    <!-- Header Navigation Bar Start -->
+    <nav class="menu-main">
+        <div class="navigation">
+            <a href="index.html"><img src="img/bloomAndThrive.jpeg" alt="Logo" width="120" height="70"
+                    style="border-radius: 5px;"></a>
+            <div class="menu">
+                <div class="btn">
+                    <i class="fas fa-times close-btn"></i>
+                </div>
+
+                <a href="product.html">Products</a>
+                <a href="menu.html">Menu</a>
+                <a href="#">Gallery</a>
+                <button class="btn-2 btn-link" onclick="window.location.href='contact.html'">Contact Us</button>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="btn-2 signUp-btn">Sign Up</button>
+            <button class="btn-2 logIn-btn">Log In</button>
+        </div>
+        <div class="btn"><i class="fas fa-bars menu-btn"></i></div>
+    </nav>
+    <!-- Header Navigation Bar End -->
+
+    <!-- Menu Navbar Start -->
+    <nav class="menu-navbar">
+        <a href="menu.html#farming-section">Farming</a>
+        <a href="menu.html#plants-section">Plants</a>
+        <a href="menu.html#seedlings-section">Crops and Seedlings</a>
+        <a href="menu.html#fertilizers-section">Fertilizers</a>
+        <a href="menu.html#forestry-section">Forestry</a>
+    </nav>
+    <!-- Menu Navbar End -->
+     <!-- Menu Sections start-->
+    <section class="menu menu-page">
+        <!-- farming category section -->
+        <div class="menu-category" id="farming-section">
+            <div class="menu-main-heading">
+                <h1>Farming</h1>
+                <h4>Products and resources essential for modern and sustainable farming, including grains, animal feed,
+                    equipment rentals, and core essentials to improve farm productivity.</h4>
+                <hr class="divider">
+            </div>
+            <div class="menu-card-container">
+                <!-- Grains and Cereals Card -->
+                <div class="menu-card">
+                    <img src="img/menu-items/grain-cereals.jpeg" alt="grains and cereals">
+                    <div class="card-description">
+                        <h2>Grains & Cereals</h2>
+                        <p>High-quality grains and cereals such as wheat, barley, and oats for food production and
+                            animal
+                            feed.</p>
+                    </div>
+                    <div class="card-btn">
+                        <button>Browse</button>
+                    </div>
+                </div>
+                <!-- Forage & Animal Feed Card -->
+                <div class="menu-card">
+                    <img src="img/menu-items/animal-feeds.jpeg" alt="">
+                    <div class="card-description">
+                        <h2>Forage & Animal Feed</h2>
+                        <p>Nutrient-rich hay, silage, and other forage products to sustain livestock and enhance animal
+                            health.</p>
+                    </div>
+                    <div class="card-btn">
+                        <button>Browse</button>
+                    </div>
+                </div>
+                <!-- Equipment Rentals Card -->
+                <div class="menu-card">
+                    <img src="img/menu-items/tractor-rentals.jpeg" alt="">
+                    <div class="card-description">
+                        <h2>Equipment Rentals</h2>
+                        <p>Affordable rental services for tractors, seed drills, and other machinery essential for farm
+                            operations.</p>
+                    </div>
+                    <div class="card-btn">
+                        <button>Browse</button>
+                    </div>
+                </div>
+                <!-- Farming Essentials Card -->
+                <div class="menu-card">
+                    <img src="img/menu-items/farming-essentials.jpeg" alt="">
+                    <div class="card-description">
+                        <h2>Farming Essentials</h2>
+                        <p>A collection of everyday tools and supplies for efficient farm management and maintenance.
+                        </p>
+                    </div>
+                    <div class="card-btn">
+                        <button>Browse</button>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <!-- plants category section -->
+        <div class="menu-category" id="plants-section">
+            <div class="menu-main-heading">
+                <h1>Plants</h1>
+                <h4>A wide selection of plants for indoor and outdoor environments, offering beauty, functionality, and
+                    medicinal benefits.</h4>
+                <hr class="divider">
+            </div>
+            <div class="menu-card-container">
+                <!-- Indoor Plants Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200/dark" alt="">
+                    <div class="card-description">
+                        <h2>Indoor Plants</h2>
+                        <p>Stylish and air-purifying indoor plants for homes and offices.</p>
+                    </div>
+                    <div class="card-btn">
+                        <button>Browse</button>
+                    </div>
+                </div>
+                <!-- Outdoor Plants Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200/dark" alt="">
+                    <div class="card-description">
+                        <h2>Outdoor Plants</h2>
+                        <p>Durable and vibrant plants for gardens, patios, and landscapes.</p>
+                    </div>
+                    <div class="card-btn">
+                        <button>Browse</button>
+                    </div>
+                </div>
+                <!-- Flowering Plants Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200/dark" alt="">
+                    <div class="card-description">
+                        <h2>Flowering Plants</h2>
+                        <p>Beautiful blooming plants such as roses and lilies to enhance aesthetic appeal.</p>
+                    </div>
+                    <div class="card-btn">
+                        <button>Browse</button>
+                    </div>
+                </div>
+                <!-- Medicinal Plants Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200/dark" alt="">
+                    <div class="card-description">
+                        <h2>Medicinal Plants</h2>
+                        <p>Herbal plants like aloe vera and lavender known for their therapeutic properties.</p>
+                    </div>
+                    <div class="card-btn">
+                        <button>Browse</button>
+                    </div>
+                </div>
+                <!-- Decorative Pots Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200/dark" alt="">
+                    <div class="card-description">
+                        <h2>Decorative Pots</h2>
+                        <p>A variety of artistic and functional pots to complement plant arrangements.</p>
+                    </div>
+                    <div class="card-btn">
+                        <button>Browse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- seedlings and crops section -->
+        <div class="menu-category" id="seedlings-section">
+            <div class="menu-main-heading">
+                <h1>Seedlings and Crops</h1>
+                <h4>A diverse range of seedlings and crops ready for planting, covering vegetables, fruits, root crops,
+                    and industrial cash crops.</h4>
+                <hr class="divider">
+            </div>
+            <div class="menu-card-container">
+                <!-- Vegetable Plants & Crops Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200@2x.png/dark" alt="grains and cereals">
+                    <div class="card-description">
+                        <h2>Vegetable Crops</h2>
+                        <p>Healthy vegetable plants and fresh crops including tomatoes, lettuce, and peppers for small
+                            and large-scale farming.</p>
+                    </div>
+                    <button>Browse</button>
+                </div>
+                <!-- Fruit Seedlings Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200@2x.png/dark" alt="">
+                    <div class="card-description">
+                        <h2>Fruit Seedlings</h2>
+                        <p>Quality fruit tree seedlings like apples, mangoes, and citrus for home orchards and
+                            commercial farms.</p>
+                    </div>
+                    <button>Browse</button>
+                </div>
+                <!-- Root & Tubers Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200@2x.png/dark" alt="">
+                    <div class="card-description">
+                        <h2>Root & Tubers</h2>
+                        <p>Nutritious root and tuber plants such as potatoes, carrots, and cassava for agricultural
+                            cultivation.</p>
+
+                    </div>
+                    <button>Browse</button>
+                </div>
+                <!-- Industrial Crops Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200@2x.png/dark" alt="">
+                    <div class="card-description">
+                        <h2>Industrial Crops</h2>
+                        <p>Specialized crops like cotton, sugarcane, and sunflowers cultivated for industrial processing
+                            and production.</p>
+                    </div>
+                    <button>Browse</button>
+                </div>
+            </div>
+        </div>
+        <!-- fertilizers section -->
+        <div class="menu-category" id="fertilizers-section">
+            <div class="menu-main-heading">
+                <h1>Fertilizers</h1>
+                <h4>Various types of fertilizers designed to improve soil health and crop yield for different farming
+                    needs.</h4>
+                <hr class="divider">
+            </div>
+            <div class="menu-card-container">
+                <!-- Solid Fertilizers Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200@2x.png/dark" alt="grains and cereals">
+                    <div class="card-description">
+                        <h2>Solid Fertilizers</h2>
+                        <p>Granular fertilizers to enhance soil nutrients, ideal for a wide range of crops.</p>
+
+                    </div>
+                    <button>Browse</button>
+                </div>
+                <!-- Liquid Fertilizers Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200@2x.png/dark" alt="">
+                    <div class="card-description">
+                        <h2>Liquid Fertilizers</h2>
+                        <p>Fast-acting liquid fertilizers for foliar feeding and soil application.</p>
+                    </div>
+                    <button>Browse</button>
+                </div>
+                <!-- Organic Fertilizers Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200@2x.png/dark" alt="">
+                    <div class="card-description">
+                        <h2>Organic Fertilizers</h2>
+                        <p>Environmentally friendly compost, manure, and other organic products for sustainable
+                            agriculture.</p>
+
+                    </div>
+                    <button>Browse</button>
+                </div>
+                <!-- Specialty Fertilizers Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200@2x.png/dark" alt="">
+                    <div class="card-description">
+                        <h2>Specialty Fertilizers</h2>
+                        <p>Customized fertilizers tailored to specific plant needs, including bloom boosters and
+                            micronutrient blends.</p>
+                    </div>
+                    <button>Browse</button>
+                </div>
+            </div>
+        </div>
+        <!-- forestry section -->
+        <div class="menu-category" id="forestry-section">
+            <div class="menu-main-heading">
+                <h1>Forestry</h1>
+                <h4>Products and supplies for sustainable forestry, from saplings to reforestation tools and woodcraft
+                    materials.</h4>
+                <hr class="divider">
+            </div>
+            <div class="menu-card-container">
+                <!-- Tree Saplings Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200@2x.png/dark" alt="grains and cereals">
+                    <div class="card-description">
+                        <h2>Tree Saplings</h2>
+                        <p>Young tree saplings including pine, oak, and fruit-bearing varieties for landscaping and
+                            reforestation.</p>
+                    </div>
+                    <button>Browse</button>
+                </div>
+                <!-- Lumber & Timber Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200@2x.png/dark" alt="">
+                    <div class="card-description">
+                        <h2>Lumber & Timber</h2>
+                        <p>Quality timber and lumber products for construction and woodworking projects.</p>
+                    </div>
+                    <button>Browse</button>
+                </div>
+                <!-- Reforestation Supplies Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200@2x.png/dark" alt="">
+                    <div class="card-description">
+                        <h2>Reforestation Supplies</h2>
+                        <p>Tools and materials for reforestation, including biodegradable tree guards and planting bags.</p>
+
+                    </div>
+                    <button>Browse</button>
+                </div>
+                <!-- Woodcraft Card -->
+                <div class="menu-card">
+                    <img src="https://placehold.in/300x200@2x.png/dark" alt="">
+                    <div class="card-description">
+                        <h2>Woodcraft</h2>
+                        <p>Handcrafted wooden items and raw materials for carpentry and decorative purposes.</p>
+                    </div>
+                    <button>Browse</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Menu Sections end-->
+    <!-- Callout Section Start -->
+    <section class="callout-section">
+        <div class="callout-content">
+            <div class="callout-headline">
+                <div class="callout-main-heading">
+                    <h1>Start your Journey as a Buyer or Seller?</h1>
+                    <!-- <i class="fa-solid fa-shop" style="color: white;"></i> -->
+                </div>
+                <h2>Join our platform to connect with thousands of buyers and sellers instantly.</h2>
+            </div>
+
+            <div class="btn-callout-group">
+                <button class="btn-callout first-btn">Become a Buyer</button>
+                <button class="btn-callout second-btn">Become a Seller</button>
+            </div>
+        </div>
+        <div class="callout-img">
+            <img src="img/callout-image.jpeg" alt="">
+        </div>
+
+    </section>
+    <!-- Callout Section End -->
+    <!-- Footer Section Start -->
+    <footer>
+        <a href="#">
+            <h1>Bloom and Thrive™</h1>
+        </a>
+
+        <div class="footer-menu">
+            <a href="#">HOME</a>
+            <a href="#">SUPPORT</a>
+            <a href="#">DOWNLOADS</a>
+            <a href="#">BUY NOW</a>
+            <a href="#">TESTIMONIALS</a>
+            <a href="#">PARTNERS</a>
+            <a href="#">CONTACT US</a>
+        </div>
+        <div class="footer-logo">Bloom&Thrive<span style="font-size: 25px;">Ⓡ</span></div>
+
+        <div class="footer-socials">
+            <a href="facebook.com">
+                <div class="footer-social-box">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </div>
+            </a>
+            <a href="twitter.com">
+                <div class="footer-social-box">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </div>
+            </a>
+            <a href="linkedin.com">
+                <div class="footer-social-box">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </div>
+            </a>
+            <a href="instagram.com">
+                <div class="footer-social-box">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+        </div>
+        <div class="footer-privacy">VS Bloom&Thrive GROUP © 2025 PRIVACY POLICY</div>
+    </footer>
+    <!-- Footer Section End -->
+
+</html>

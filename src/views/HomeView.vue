@@ -159,12 +159,9 @@ const projectsData = {
   bloom: {
     title: "Bloom & Thrive",
     subtitle: "Agriculture E-Commerce & Inventory System",
-    type: "gallery",
-    images: [
-      { label: "Home", url: new URL('../assets/home_bloom.jpg', import.meta.url).href },
-      { label: "Register", url: new URL('../assets/register_bloom.jpg', import.meta.url).href },
-      { label: "Login", url: new URL('../assets/login_bloom.jpg', import.meta.url).href }
-    ]
+    type: "iframe",
+    projectUrl: "/bloom/index.html",
+    images: []
   },
   kiosk: {
     title: "PUP Kiosk Map",

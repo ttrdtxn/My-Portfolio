@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product-style.css">
+    
+    <title>Buyer Dashboard</title>
+    <style>
+    
+
+        .dashboard {
+            text-align: center;
+            margin-top: 150px;
+        }
+
+        .cart-btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            /* margin: 4px 2px; */
+            cursor: pointer;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .cart-btn:hover {
+            background-color: #45a049;
+        }
+
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+            border-radius: 10px;
+        }
+
+        .modal-headings {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 20px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="navigation">
+            <a href="buyer.html"><img src="img/bloomAndThrive.jpeg" alt="Logo" width="120" height="70"
+                    style="border-radius: 5px;"></a>
+            <div class="menu">
+                <a href="orders.html">My Orders</a>
+                <a href="wishlist.html">Wishlist</a>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+            <button class="cart-btn"><i class="fa-solid fa-wallet"></i></button>
+            <button class="btn-2 logIn-btn">Account</button>
+        </div>
+    </nav>
+    <section class="dashboard">
+        <div id="buyerProducts" class="product-items">No Available Products</div>
+    </section>
+
+    <div id="toastContainer"></div>
+    <script src="js/buyer.js"></script>
+    <script src="js/add-to-cart.js"></script>
+</body>
+
+</html>

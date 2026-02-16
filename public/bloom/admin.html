@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Admin Dashboard</title>
+    <style>
+        .dashboard {
+            text-align: center;
+            margin-top: 150px;
+        }
+
+        .admin-btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            /* margin: 4px 2px; */
+            cursor: pointer;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .admin-btn:hover {
+            background-color: #45a049;
+        }
+
+        .admin-btn i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="navigation">
+            <a href="index.html"><img src="img/bloomAndThrive.svg" alt="Logo" width="120" height="70"
+                    style="border-radius: 5px;"></a>
+            <div class="menu">
+                <a href="admin.html">Dashboard</a>
+                <a href="manage-users.html">User Management</a>
+                <a href="HTML File Extensions/manage-products.html">Manage Products</a>
+                <a href="manage-orders.html">Manage Orders</a>
+                <a href="#">Transaction Logs</a>
+                <button class="btn-2 btn-link" onclick="window.location.href='logout.html'">Logout</button>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="admin-btn"><i class="fa-solid fa-user"></i>Admin</button>
+        </div>
+    </nav>
+    <section class="dashboard">
+        <h1>Welcome to the Admin Dashboard</h1>
+        <p>Here you can view your orders, manage your wishlist, and update your profile.</p>
+    </section>
+</body>
+
+</html>

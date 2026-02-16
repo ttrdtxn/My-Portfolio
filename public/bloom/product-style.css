@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
+@font-face {
+    font-family: 'Bagnard';
+    src: url(fonts/Bagnard.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Fontin';
+    src: url(fonts/Fontin-Regular.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Fontin-Bold';
+    src: url(fonts/Fontin-Bold.otf) format('opentype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+:root {
+    /* Primary Colors */
+    --primary: #6D9F71;
+    --secondary: #F4EFE8;
+    --tertiary: #0A7075;
+    --accent-color: #D68C45;
+
+    /* Background Colors */
+    --bg-color1: #FFFFF0;
+    --bg-color2: #FBF5DF;
+    --bg-color3: #FCFCF7;
+    --bg-color4: #F8F7F4;
+    --bg-color5: #FAF9F6;
+
+    /* Text Colors */
+    --text-color-dark: #333333;
+    --text-color-light: #FFFFFF;
+
+    /* Button Colors */
+    --button-secondary: #AED581;
+    /* Light green */
+    --button-tertiary: #4E342E;
+    /* Rich brown */
+    --button-quaternary: #FFD54F;
+    /* Warm yellow */
+
+    /* Accent Colors for Hover Effects */
+    --accent-secondary: #8BC34A;
+    /* Brighter green */
+    --accent-tertiary: #795548;
+    /* Softer brown */
+    --accent-quaternary: #FFC107;
+    /* Golden yellow */
+
+    /* Other Colors */
+    --black: #1a1a1a;
+    --gray: #f3f3f3;
+
+    /* Gradients */
+    --forest-dawn-gradient: linear-gradient(135deg, #D4E157, #388E3C);
+    --tropical-paradise-gradient: linear-gradient(135deg, #43C6AC, #F8FFAE);
+    --natures-embrace-gradient: linear-gradient(135deg, #3CA55C, #B5AC49);
+    --gradient-emerald-glow: linear-gradient(135deg, #A8E063, #56AB2F);
+    --gradient-verdant-harmony: linear-gradient(135deg, #A3D977, #2E7D32);
+    --gradient-mint-meadow: linear-gradient(135deg, #9BEBD6, #2E8B57);
+    --gradient-spring-awakening: linear-gradient(135deg, #C9FFBF, #2B7A0B);
+    --gradient-evergreen-serenity: linear-gradient(135deg, #4CAF50, #087F23);
+    --gradient-nature-whisper: linear-gradient(135deg, #B6EDC8, #3AA655);
+    --gradient-jungle-mist: linear-gradient(135deg, #80E27E, #005005);
+}
+
+html {
+    scroll-padding-top: 25vh;
+    scroll-behavior: smooth;
+    font-size: 1em;
+}
+
+body {
+    background-color: var(--bg-color2);
+    min-height: 100vh;
+}
+
+section {
+    /*min-width: 100%;*/
+    /*min-height: 100vh;*/
+    color: var(--black);
+}
+
+.menu-main {
+    z-index: 999;
+    /* position: fixed; */
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    transition: all 0.5s ease-in-out;
+    background-color: var(--primary);
+    filter: drop-shadow(5px 5px 10px transparent);
+}
+
+/*Navbar Brand*/
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.brand {
+    transition: all ease-in-out 0.3s;
+}
+
+.brand:hover {
+    opacity: 0.8;
+}
+
+/*Navbar Menu*/
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.menu-navbar {
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    background-color: var(--tertiary);
+    gap: 50px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.menu a,
+.menu-navbar a {
+    display: inline-block;
+    position: relative;
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.menu a::after,
+.menu-navbar a::after {
+    color: var(--accent-color);
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    border-radius: 5px;
+    height: 0.17em;
+    bottom: 0;
+    left: 0;
+    background: currentColor;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.menu a:hover::after,
+.menu-navbar a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.btn {
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+.btn-link {
+    display: none;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-2 {
+    font-weight: bold;
+    width: 150px;
+    height: 45px;
+    font-size: 20px;
+    background-color: var(--secondary);
+    color: var(--primary);
+    border-radius: 12px;
+    transition: all ease-in-out 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-2:hover {
+    color: var(--bg-color2);
+    background-color: var(--accent-color);
+}
+
+/* Product Section */
+
+/* Product Items and Container */
+.product-container{
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.product-category{
+    margin-bottom: 40px;
+}
+
+.product-headings h2{
+    font-size: 1.5em;
+    margin: 20px 20px;
+    color: var(--tertiary);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--tertiary);
+    padding-bottom: 5px;
+}
+
+.product-items{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--bg-color5);
+    border: 2px solid var(--bg-color1);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s; 
+}
+
+.product-item:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: #005005 solid 2px;
+}
+
+.product-item img{
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.product-item h3{
+    font-size: 1.2em;
+    color: var(--text-color-dark);
+    margin: 10px 0 10px;
+}
+
+.product-item p{
+    font-size: 0.9em;
+    color: var(--text-color-dark);
+    line-height: 1.4;
+    /* margin-bottom: 15px; */
+    flex-grow: 1;
+}
+
+.product-item button{
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 0.8em;
+    color: var(--text-color-light);
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.product-item button:hover{
+    background-color: #0056b3;
+}
+
+/*Product Price and Buttons*/
+.product-options{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-price{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.product-price p{
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #2B7A0B !important;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.product-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-user {
+    display: flex;
+    align-items: center;
+}
+
+.product-user p {
+    white-space: nowrap;
+    margin-left: 5px; /* Optional: Add some space between the label and the text */
+}
+
+.product-type {
+    display: flex;
+    align-items: center;
+}
+
+.product-type p {
+    white-space: nowrap;
+    margin-left: 5px; /* Optional: Add some space between the label and the text */
+}
+/* Footer Section */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .footer-menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+footer .footer-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+footer h1 {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Fontin';
+    color: var(--text-color-light);
+    transition: all ease-in-out 0.3s;
+}
+
+footer h1:hover {
+    color: var(--accent-color);
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer .footer-menu a:hover {
+    color: #00aaff;
+}
+
+footer .footer-logo {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-social-box {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--text-color-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in-out 0.3s;
+}
+
+.footer-social-box i {
+    font-size: 24px;
+    color: var(--text-color-light);
+    transition: color 0.5s ease-in-out;
+}
+
+.footer-social-box:hover {
+    background: var(--text-color-light);
+}
+
+.footer-social-box:hover i {
+    color: var(--text-color-dark);
+}
+
+

@@ -1,0 +1,38 @@
+/*Simple Approach*/
+
+@media (max-width: 768px) {
+    /* Mobile & Tablet styles */
+}
+
+@media (min-width: 769px) {
+    /* Desktop styles */
+}
+
+/*Mulitple Breakpoints or common*/
+
+/* Extra Small Devices (Phones) */
+@media (max-width: 575px) {
+    /* Styles for very small screens */
+}
+
+/* Small Devices (Tablets in Portrait) */
+@media (min-width: 576px) and (max-width: 767px) {
+    /* Styles for small screens */
+}
+
+/* Medium Devices (Tablets in Landscape) */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Styles for medium screens */
+}
+
+/* Large Devices (Laptops, Desktops) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* Styles for large screens */
+}
+
+/* Extra Large Devices (Big Screens, Large Desktops) */
+@media (min-width: 1200px) {
+    /* Styles for extra-large screens */
+}
+
+
