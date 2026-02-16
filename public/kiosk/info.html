@@ -1,29 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/style-main.css">
-	<title>Information</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+            font-family: 'Arimo', sans-serif;
+            text-align: center;
+            color: #333;
+            box-sizing: border-box;
+        }
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background: #800000; /* PUP Maroon */
+            border-radius: 20px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            box-shadow: 0 10px 20px rgba(128, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 22px;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        p {
+            font-size: 16px;
+            color: #888;
+            line-height: 1.5;
+            max-width: 250px;
+        }
+        .pulse {
+            width: 10px;
+            height: 10px;
+            background: #800000;
+            border-radius: 50%;
+            margin-top: 30px;
+            animation: pulse-animation 2s infinite;
+        }
+        @keyframes pulse-animation {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(128, 0, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(128, 0, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(128, 0, 0, 0); }
+        }
+    </style>
 </head>
 <body>
-
-<div class="m" id="modal">
-	
-		<div class="m-title">
-			<h2>Welcome to the PUP Kiosk Map!<span class="close">&times</span></h2>
-		</div>
-
-		<div class="m-contain-img">
-			<img src="images/PUPLogo.png" alt="PUP Logo">
-		</div>
-
-		<div class="m-content">
-			<p>
-				Find your way around campus easily with our interactive map. 
-				Click on any kiosk icon for more information, such as location, services offered etc. 
-				Explore the PUP campus to make your experience more convenient and enjoyable!</p>
-		</div>
-</div>
-
+    <div class="logo-placeholder">PUP</div>
+    <h1>Welcome to <br>PUP Kiosk</h1>
+    <p>Hover over the map buildings to explore the campus facilities.</p>
+    <div class="pulse"></div>
 </body>
 </html>

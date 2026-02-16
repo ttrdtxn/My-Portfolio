@@ -141,7 +141,60 @@
         </div>
     </aside>
 </div>
+<script>
+    $(document).ready(function() {
+        // Initialize Resizer
+        $('map').imageMapResize();
 
+        const infoFrame = $('#info-frame');
+        const defaultPage = "info.html";
+        let isLocked = false;
+
+        // HOVER IN: Show building info
+        $('area').on('mouseenter', function() {
+            const buildingPage = $(this).attr('href');
+            infoFrame.attr('src', buildingPage);
+        });
+
+        // HOVER OUT: Return to Welcome Screen
+        $('area').on('mouseleave', function() {
+            if (!isLocked) {
+                infoFrame.attr('src', defaultPage);
+            }
+        });
+
+        // CLICK: Lock the view so user can read/scroll
+        $('area').on('click', function() {
+            isLocked = true; 
+            if ($(window).width() <= 1024) {
+                $('html, body').animate({
+                    scrollTop: $("#info-anchor").offset().top
+                }, 600);
+            }
+        });
+
+        // Click anywhere on the map image to unlock and return to Welcome
+        $('#map-image').on('click', function() {
+            isLocked = false;
+            infoFrame.attr('src', defaultPage);
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        // 1. Initialize Map Resizer
+        $('map').imageMapResize();
+
+        // 2. Mobile Functional Fix: Auto-scroll to Info when area is clicked
+        $('area').on('click', function() {
+            if ($(window).width() <= 1024) {
+                $('html, body').animate({
+                    scrollTop: $("#info-anchor").offset().top
+                }, 800);
+            }
+        });
+    });
+</script>
 <script>
     $(document).ready(function() {
         $('map').imageMapResize();
