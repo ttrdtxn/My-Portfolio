@@ -16,7 +16,7 @@
           <section class="section">
             <h2 class="section-title">PROFILE</h2>
             <p class="profile-text">
-              I am a dedicated Computer Engineering Technology student at PUP, currently a candidate for graduation this March 4, 2026. I have a strong foundation in troubleshooting, network monitoring, and professional communication, eager to apply my technical skills in a fast-paced environment.
+             Versatile Computer Engineering professional with expertise in Full-Stack Development (React, Node.js) and Network Infrastructure. Skilled in building scalable applications like SKILLCONNECT and troubleshooting Layer 1-3 connectivity. Eager to apply engineering logic to Software Development, Systems Engineering, or Technical Support roles.
             </p>
           </section>
 
@@ -26,7 +26,7 @@
             <div class="item">
               <div class="item-header">
                 <span class="role">CUSTOMER SERVICE REPRESENTATIVE</span>
-                <span class="date">Sep 2025 - Feb 2026</span>
+                <span class="date">Sep 2025 - Mar 2026</span>
               </div>
               <p class="company">Alorica — Part Time (6 months)</p>
               <ul class="bullets">
@@ -55,7 +55,7 @@
             <div class="item">
               <p class="edu-school">Polytechnic University of the Philippines</p>
               <p class="edu-degree">Bachelor of Science in Computer Engineering Technology</p>
-              <p class="edu-date">2023 - Present</p>
+              <p class="edu-date">2023 - 2026</p>
             </div>
             <div class="item">
               <p class="edu-school">Polytechnic University of the Philippines</p>
