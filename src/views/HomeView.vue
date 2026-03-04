@@ -17,7 +17,7 @@
       </div>
       <div class="hero-image-container">
         <div class="image-card">
-          <img src="../assets/profile-logo-creative.jpg" alt="Trisha Bermudez" />
+          <img src="../assets/profile_logo.jpg" alt="Trisha Bermudez" />
         </div>
       </div>
     </main>
